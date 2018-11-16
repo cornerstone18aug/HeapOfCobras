@@ -16,22 +16,17 @@ public class ALPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
 
   /**
    * Tests whether the priority queue is empty.
-   * @return
    */
   @Override
   public boolean isEmpty() {
-    if (queue.size() <= 0) {
-      return true;
-    }
-    return false;
+    return queue.size() <= 0;
   }
 
   /**
    * Inserts a key-value pair and returns the entry created.
+   *
    * @param key the key of the new entry
    * @param value the associated value of the new entry
-   * @return
-   * @throws IllegalArgumentException
    */
   @Override
   public Entry enqueue(Comparable key, Object value) throws IllegalArgumentException {
@@ -42,29 +37,54 @@ public class ALPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
 
   /**
    * Returns (but does not remove) an entry with minimal key.
-   * @return
    */
   @Override
   public Entry peek() {
-    return null;
+    // We get the first entry that was entered with the min value
+    Entry<K, V> minValue = queue.get(0);
+
+    // We find the entry with the minimum value
+    for (Entry<K, V> entry : queue) {
+      if (entry.getKey().compareTo(minValue.getKey()) < 0) {
+        minValue = entry;
+      }
+    }
+    // We return the entry with the minimum value
+    return minValue;
   }
 
   /**
    * Removes and returns an entry with minimal key.
-   * @return
    */
   @Override
   public Entry dequeueMin() {
-    return null;
+    int minIndex = 0;
+
+    for (int i = 1; i < queue.size(); i++) {
+      if (queue.get(i).getKey().compareTo(queue.get(minIndex).getKey()) < 0) {
+        minIndex = i;
+      }
+    }
+    return queue.remove(minIndex);
+  }
+
+  /**
+   * Return the queue
+   */
+  public List<Entry<K, V>> getQueue() {
+    return queue;
   }
 
   /**
    * Merges another priority queue of the same type.
-   * @param other
-   * @return
    */
   @Override
   public VCPriorityQueue merge(VCPriorityQueue other) {
-    return null;
+    ALPriorityQueue<K, V> otherQ = ((ALPriorityQueue) other);
+
+    for (Entry<K, V> entry : otherQ.getQueue()) {
+      this.queue.add(entry);
+    }
+    return this;
   }
 }
