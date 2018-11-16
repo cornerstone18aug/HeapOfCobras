@@ -20,27 +20,48 @@ public class DLPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
    */
   @Override
   public boolean isEmpty() {
-    if (queue.size() <= 0) {
-      return true;
-    }
-    return false;
+    return queue.size() <= 0;
   }
 
+  /**
+   * Inserts a key-value pair and returns the entry created.
+   *
+   * @param key the key of the new entry
+   * @param value the associated value of the new entry
+   */
   @Override
   public Entry enqueue(Comparable key, Object value) throws IllegalArgumentException {
+    Entry<K, V> newEntry = new Entry<>(key, value);
+    queue.add(newEntry);
     return null;
   }
 
+  /**
+   * Returns (but does not remove) an entry with minimal key.
+   */
   @Override
   public Entry peek() {
     return null;
   }
 
+  /**
+   * Removes and returns an entry with minimal key.
+   */
   @Override
   public Entry dequeueMin() {
     return null;
   }
 
+  /**
+   * Return the queue
+   */
+  public List<Entry<K, V>> getQueue() {
+    return queue;
+  }
+
+  /**
+   * Merges another priority queue of the same type.
+   */
   @Override
   public VCPriorityQueue merge(VCPriorityQueue other) {
     return null;
