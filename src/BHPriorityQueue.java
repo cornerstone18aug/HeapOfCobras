@@ -37,6 +37,7 @@ public class BHPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
 
   /**
    * Returns (but does not remove) an entry with minimal key.
+   * AAAAA
    */
   @Override
   public Entry peek() {

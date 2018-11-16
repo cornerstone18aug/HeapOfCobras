@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="junit-jupiter-params">
+    <CLASSES>
+      <root url="file:///Applications/IntelliJ IDEA CE.app/Contents/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file:///Applications/IntelliJ IDEA CE.app/Contents/lib" />
+    </SOURCES>
+    <jarDirectory url="file:///Applications/IntelliJ IDEA CE.app/Contents/lib" recursive="false" />
+    <jarDirectory url="file:///Applications/IntelliJ IDEA CE.app/Contents/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
