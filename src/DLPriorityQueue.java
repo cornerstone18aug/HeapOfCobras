@@ -16,7 +16,6 @@ public class DLPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
 
   /**
    * Tests whether the priority queue is empty.
-   * @return
    */
   @Override
   public boolean isEmpty() {
@@ -26,14 +25,19 @@ public class DLPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
   /**
    * Inserts a key-value pair and returns the entry created.
    *
-   * @param key the key of the new entry
+   * @param key   the key of the new entry
    * @param value the associated value of the new entry
    */
   @Override
   public Entry enqueue(Comparable key, Object value) throws IllegalArgumentException {
+    // Create a new Entry in for the Queue
     Entry<K, V> newEntry = new Entry<>(key, value);
+    // We add a new Entry in the Queue
     queue.add(newEntry);
-    return null;
+    // We order after add the new Entry
+    queue.sort();
+    // We return the Entry that was created
+    return newEntry;
   }
 
   /**
@@ -41,7 +45,12 @@ public class DLPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
    */
   @Override
   public Entry peek() {
-    return null;
+    // We reuse empty() to know if the queue is full or not
+    // and depend of that value we return null or the first value
+    if (isEmpty(queue) == true) {
+      return null;
+    }
+    return queue.get(0);
   }
 
   /**
@@ -49,7 +58,15 @@ public class DLPriorityQueue<K extends Comparable, V> implements VCPriorityQueue
    */
   @Override
   public Entry dequeueMin() {
-    return null;
+    if (isEmpty(queue) == true) {
+      return null;
+    }
+    // New entry
+    Entry<K, V>> newEntry = new ArrayList<>();
+    // Returns a entry with the minimal value
+    newEntry.peek();
+    // We remove and return the minimal entry in the Queue
+    return queue.remove(newEntry);
   }
 
   /**
